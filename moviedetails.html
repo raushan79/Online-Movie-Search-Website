@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Details</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Movie Details</h1>
+    <div id="container">
+
+    </div>
+    
+</body>
+</html>
+<script>
+    let data=JSON.parse(localStorage.getItem("data"));
+    console.log(data);
+    
+    displayMovieDetail(data);
+
+    // display movie details
+function displayMovieDetail(data) {
+    // appendEle.innerHTML = "";
+   
+
+        let { Title, Year, imdbID, Type, Poster } = data;
+        // console.log(Title,Year,imdbID,Poster)
+        let card = document.createElement('div');
+
+        let title = document.createElement('p');
+        title.textContent = Title;
+
+        let year = document.createElement('p')
+        year.textContent = Year;
+
+        let id = document.createElement('p')
+        id.textContent = imdbID;
+
+        let type = document.createElement('p')
+        type.textContent = Type;
+        let poster = document.createElement('img')
+        poster.src = Poster;
+        card.append(poster, title, year, id, type);
+        document.querySelector("#container").append(card);
+   
+
+}
+
+
+</script>
